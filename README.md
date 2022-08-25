@@ -7,7 +7,7 @@ There are three different optodettemplate.xml files in this repository:
 
 
 1. Official customer (`official/optodetemplates.xml`)  
-2. Custom customer (`custom/optodetemplates.xml`)  
+2. Custom  (`custom/optodetemplates.xml`)  
 3. Development (`development/optodetemplates.xml`)  
 
 
