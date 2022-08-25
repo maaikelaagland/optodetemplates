@@ -3,17 +3,17 @@ This is the official location of optode template xml files, any work done on opt
 
 To request access contact jorn@artinis.com (not sure if needed for github organisational repo)
 
-There are three different .xml files in this repository:
+There are three different optodettemplate.xml files in this repository:
 
-1. Official customer (optodetemplates.xml)
-2. Custom customer (optodetemplates_custom.xml)
-3. Development (optodetemplates_development.xml)
+1. Official customer (official/optodetemplates.xml)
+2. Custom customer (custom/optodetemplates.xml)
+3. Development (development/optodetemplates.xml)
 
-The official template file (optodetemplates.xml) should only contain templates that have been cleared with (whom?) to be included in the official customer release.
+The official template file should only contain templates that have been cleared with (template checking group, consisting of x,y,z, blabla) to be included in the official customer template file.
 
-Custom customer templates that were request by customers, but are of no general use and hence shouldn't be included in the official release should be put into the custom customer (optodetemplates_custom.xml) file.
+Custom customer templates that were requested (or made) by customers, but are of no general use and hence shouldn't be included in the official release should be put into the custom customer template file.
 
-Templates used for development purposes should be put into the development file (optodetemplates_development.xml).
+Templates used for development purposes should be put into the development template file.
 
 Please go to the [wiki](https://github.com/kdarti/optodetemplates/wiki) for further information.
 
