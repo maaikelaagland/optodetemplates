@@ -5,9 +5,11 @@ To request access contact jorn@artinis.com (not sure if needed for github organi
 
 There are three different optodettemplate.xml files in this repository:
 
-1. Official customer (official/optodetemplates.xml)
-2. Custom customer (custom/optodetemplates.xml)
-3. Development (development/optodetemplates.xml)
+
+1. Official customer (`official/optodetemplates.xml`)  
+2. Custom customer (`custom/optodetemplates.xml`)  
+3. Development (`development/optodetemplates.xml`)  
+
 
 The official template file should only contain templates that have been cleared with (template checking group, consisting of x,y,z, blabla) to be included in the official customer template file.
 
