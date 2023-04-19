@@ -9,9 +9,9 @@ There are three different optodettemplate.xml files in this repository.
 2. Custom (`custom/optodetemplates.xml`)  
 3. Development (`development/optodetemplates.xml`)  
 
-The **Official** template file should only contain templates that have been cleared with (template checking group, consisting of x,y,z, blabla) to be included.
+The **Official** template file should only contain templates that has been reviewed and approved by a member of the "template checking group" ([list of people]).
 
-Custom templates that were requested (or made) by customers or project partners, but are of no general use shouldn't be included in the official release , these should be placed in the **Custom** template file.
+Custom templates that were requested (or made) by customers or project partners, but are of no general use shouldn't be included in the official release, these should be placed in the **Custom** template file.
 
 Templates used for development purposes should be put in the **Development** template file.
 
