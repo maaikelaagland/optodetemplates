@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!--This file describes a set of optodetemplates-->
-<om:OptodeTemplates xmlns:om="http://www.artinis.com/oxymon" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" MajorVersion="1" MinorVersion="26" Scale="mm">
+<om:OptodeTemplates xmlns:om="http://www.artinis.com/oxymon" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" MajorVersion="1" MinorVersion="23" Scale="mm">
   <!-- When setup a DAQ, devicetypes given for the templategroups will cause a preselection of templates according to the selected device-->
   <!--extra devicetypes: NIRS, EEG, ALL-->
   <!--note: devicetypes case-sensitive,  misspelled will not be recognized-->
@@ -8906,7 +8906,6 @@
   </OptodeTemplate>
   
 <OptodeTemplate ID="48" name="PortaLite TSI" group="5" DPF="6">
-
     <description>PortaLite with 2 channels using 1 Rx and 2 Tx, 1 channel TSI</description>
     <SubTemplate ID="1" name="pair 1">
       <DistanceScale Default="yes">35</DistanceScale>
@@ -8951,37 +8950,40 @@
     </combination>
   </OptodeTemplate>
   
-<OptodeTemplate ID="137" name="PortaLite MKII TSI Fit Factor - Simplified | 1 Sensor | 3 long + 1 SSC" group="5" DPF="6">
-
-		<description>PortaLite MkII with 3 channels (first subtemplate) and 1 short seperation channels (second subtemplate) using 2Rx and 3Tx, 1 channel TSI with Fit Factor</description>
-		<SubTemplate ID="1" name="Long channels">		
+<OptodeTemplate ID="135" name="PortaLite MKII TSI Fit Factor - Single sensor" group="5" DPF="6">
+		<description>PortaLite MkII with 3 channels (first subtemplate) and 3 short seperation channels (second subtemplate) using 2Rx and 3Tx, 1 channel TSI with Fit Factor</description>
+		<SubTemplate ID="1" name="Normal channels">		
 		<DistanceScale Default="yes">35</DistanceScale>
 		<GradientScale>6</GradientScale>
 			<RXOptode ID="1">
 				<RX_ID>1</RX_ID>
+				<SplitCharacter/>
 				<X>-0.99345</X>
-				<Y>0</Y>
+				<Y>-0</Y>
 				<gradX>0</gradX>
 				<gradY>0</gradY>
 			</RXOptode>
 			<TXOptode ID="1">
 				<TX_ID>1</TX_ID>
-				<X>0</X>
-				<Y>0</Y>
+				<SplitCharacter/>
+				<X>-0</X>
+				<Y>-0</Y>
 				<gradX>-0.96179</gradX>
 				<gradY>0</gradY>
 			</TXOptode>
 			<TXOptode ID="2">
 				<TX_ID>2</TX_ID>
+				<SplitCharacter/>
 				<X>0</X>
-				<Y>0</Y>
+				<Y>-0</Y>
 				<gradX>0</gradX>
 				<gradY>-0.66667</gradY>
 			</TXOptode>
 			<TXOptode ID="3">
 				<TX_ID>3</TX_ID>
+				<SplitCharacter/>
 				<X>0</X>
-				<Y>0</Y>
+				<Y>-0</Y>
 				<gradX>1.03821</gradX>
 				<gradY>0</gradY>
 			</TXOptode>
@@ -8991,12 +8993,92 @@
 		<GradientScale>6</GradientScale>
 		<RXOptode ID="2">
 				<RX_ID>2</RX_ID>
+				<SplitCharacter/>
 				<X>0</X>
 				<Y>0</Y>
 				<gradX>0</gradX>
 				<gradY>0.666667</gradY>
 			</RXOptode>
 			<TXOptode ID="4">
+				<TX_ID>1</TX_ID>
+				<SplitCharacter/>
+				<X>-0</X>
+				<Y>-0</Y>
+				<gradX>-1</gradX>
+				<gradY>0</gradY>
+			</TXOptode>
+			<TXOptode ID="5">
+				<TX_ID>2</TX_ID>
+				<SplitCharacter/>
+				<X>0</X>
+				<Y>-0</Y>
+				<gradX>0</gradX>
+				<gradY>-0.66667</gradY>
+			</TXOptode>
+			<TXOptode ID="6">
+				<TX_ID>3</TX_ID>
+				<SplitCharacter/>
+				<X>0</X>
+				<Y>-0</Y>
+				<gradX>1</gradX>
+				<gradY>0</gradY>
+			</TXOptode>
+		</SubTemplate>
+		
+		<combination ID="1">
+			<RXOptodeID>1</RXOptodeID>
+			<TXOptodeID>1</TXOptodeID>
+			<TXOptodeID>2</TXOptodeID>
+			<TXOptodeID>3</TXOptodeID>
+		</combination>
+		<combination ID="2">
+			<RXOptodeID>1</RXOptodeID>
+			<TXOptodeID>1</TXOptodeID>
+		</combination>
+		<combination ID="3">
+			<RXOptodeID>1</RXOptodeID>
+			<TXOptodeID>2</TXOptodeID>
+		</combination>
+		<combination ID="4">
+			<RXOptodeID>1</RXOptodeID>
+			<TXOptodeID>3</TXOptodeID>
+		</combination>
+		<combination ID="5">
+			<RXOptodeID>2</RXOptodeID>
+			<TXOptodeID>4</TXOptodeID>
+		</combination>
+		<combination ID="6">
+			<RXOptodeID>2</RXOptodeID>
+			<TXOptodeID>5</TXOptodeID>
+		</combination>
+		<combination ID="7">
+			<RXOptodeID>2</RXOptodeID>
+			<TXOptodeID>6</TXOptodeID>
+		</combination>
+	</OptodeTemplate>
+
+<OptodeTemplate ID="136" name="PortaLite MKII TSI Fit Factor - Dual sensors" group="5" DPF="6">
+		<description>PortaLite MkII with 2 sensors, each with 3 channels and 3 short seperation channels using 2Rx and 3Tx and 1 channel TSI with Fit Factor</description>
+		<SubTemplate ID="1" name="Sensor 1 - Normal channels">		
+		<DistanceScale Default="yes">35</DistanceScale>
+		<GradientScale>6</GradientScale>
+			<RXOptode ID="1">
+				<RX_ID>1</RX_ID>
+				<SplitCharacter/>
+				<X>-0.99345</X>
+				<Y>0</Y>
+				<gradX>0</gradX>
+				<gradY>0</gradY>
+			</RXOptode>
+			<TXOptode ID="1">
+				<TX_ID>1</TX_ID>
+				<SplitCharacter/>
+				<X>0</X>
+				<Y>0</Y>
+				<gradX>-0.96179</gradX>
+				<gradY>0</gradY>
+			</TXOptode>
+			<TXOptode ID="2">
 				<TX_ID>2</TX_ID>
 				<SplitCharacter/>
 				<X>0</X>
@@ -9004,7 +9086,52 @@
 				<gradX>0</gradX>
 				<gradY>-0.66667</gradY>
 			</TXOptode>
-		</SubTemplate>		
+			<TXOptode ID="3">
+				<TX_ID>3</TX_ID>
+				<SplitCharacter/>
+				<X>0</X>
+				<Y>0</Y>
+				<gradX>1.03821</gradX>
+				<gradY>0</gradY>
+			</TXOptode>
+		</SubTemplate>
+		
+			<SubTemplate ID="2" name="Sensor 1 - Short channels">		
+		<DistanceScale Default="yes">8</DistanceScale>
+		<GradientScale>6</GradientScale>
+		<RXOptode ID="2">
+				<RX_ID>2</RX_ID>
+				<SplitCharacter/>
+				<X>0</X>
+				<Y>0</Y>
+				<gradX>0</gradX>
+				<gradY>0.66667</gradY>
+			</RXOptode>
+			<TXOptode ID="4">
+				<TX_ID>1</TX_ID>
+				<SplitCharacter/>
+				<X>0</X>
+				<Y>0</Y>
+				<gradX>-1</gradX>
+				<gradY>0</gradY>
+			</TXOptode>
+			<TXOptode ID="5">
+				<TX_ID>2</TX_ID>
+				<SplitCharacter/>
+				<X>0</X>
+				<Y>0</Y>
+				<gradX>0</gradX>
+				<gradY>-0.66667</gradY>
+			</TXOptode>
+			<TXOptode ID="6">
+				<TX_ID>3</TX_ID>
+				<SplitCharacter/>
+				<X>0</X>
+				<Y>0</Y>
+				<gradX>1</gradX>
+				<gradY>0</gradY>
+			</TXOptode>
+		</SubTemplate>
 		<combination ID="1">
 			<RXOptodeID>1</RXOptodeID>
 			<TXOptodeID>1</TXOptodeID>
@@ -9022,393 +9149,64 @@
 		<combination ID="4">
 			<RXOptodeID>1</RXOptodeID>
 			<TXOptodeID>3</TXOptodeID>
-		</combination>
+			</combination>
 		<combination ID="5">
 			<RXOptodeID>2</RXOptodeID>
 			<TXOptodeID>4</TXOptodeID>
 		</combination>
-	</OptodeTemplate>
+		<combination ID="6">
+			<RXOptodeID>2</RXOptodeID>
+			<TXOptodeID>5</TXOptodeID>
+		</combination>
+		<combination ID="7">
+			<RXOptodeID>2</RXOptodeID>
+			<TXOptodeID>6</TXOptodeID>
+		</combination>
+		
 	
-<OptodeTemplate ID="138" name="PortaLite MKII TSI Fit Factor - Simplified | 2 Sensors | 3 long + 1 SSC" group="5" DPF="6">
-		<description>PortaLite MkII with 2 sensors, each with 3 channels and 1 short seperation channels using 2Rx and 3Tx and 1 channel TSI with Fit Factor</description>
-		<SubTemplate ID="1" name="Sensor 1 - Long channels">		
-		<DistanceScale Default="yes">35</DistanceScale>
-		<GradientScale>6</GradientScale>
-			<RXOptode ID="1">
-				<RX_ID>1</RX_ID>
-				<X>-0.99345</X>
-				<Y>0</Y>
-				<gradX>0</gradX>
-				<gradY>0</gradY>
-			</RXOptode>
-			<TXOptode ID="1">
-				<TX_ID>1</TX_ID>
-				<X>0</X>
-				<Y>0</Y>
-				<gradX>-0.96179</gradX>
-				<gradY>0</gradY>
-			</TXOptode>
-			<TXOptode ID="2">
-				<TX_ID>2</TX_ID>
-				<X>0</X>
-				<Y>0</Y>
-				<gradX>0</gradX>
-				<gradY>-0.66667</gradY>
-			</TXOptode>
-			<TXOptode ID="3">
-				<TX_ID>3</TX_ID>
-				<X>0</X>
-				<Y>0</Y>
-				<gradX>1.03821</gradX>
-				<gradY>0</gradY>
-			</TXOptode>
-		</SubTemplate>		
-		<SubTemplate ID="2" name="Sensor 1 - Short channels">		
-		<DistanceScale Default="yes">8</DistanceScale>
-		<GradientScale>6</GradientScale>
-		<RXOptode ID="2">
-				<RX_ID>2</RX_ID>
-				<X>0</X>
-				<Y>0</Y>
-				<gradX>0</gradX>
-				<gradY>0.66667</gradY>
-			</RXOptode>
-			<TXOptode ID="4">
-				<TX_ID>2</TX_ID>
-				<X>0</X>
-				<Y>0</Y>
-				<gradX>0</gradX>
-				<gradY>-0.66667</gradY>
-			</TXOptode>
-		</SubTemplate>
-		<combination ID="1">
-			<RXOptodeID>1</RXOptodeID>
-			<TXOptodeID>1</TXOptodeID>
-			<TXOptodeID>2</TXOptodeID>
-			<TXOptodeID>3</TXOptodeID>
-		</combination>
-		<combination ID="2">
-			<RXOptodeID>1</RXOptodeID>
-			<TXOptodeID>1</TXOptodeID>
-		</combination>
-		<combination ID="3">
-			<RXOptodeID>1</RXOptodeID>
-			<TXOptodeID>2</TXOptodeID>
-		</combination>
-		<combination ID="4">
-			<RXOptodeID>1</RXOptodeID>
-			<TXOptodeID>3</TXOptodeID>
-			</combination>
-		<combination ID="5">
-			<RXOptodeID>2</RXOptodeID>
-			<TXOptodeID>4</TXOptodeID>
-		</combination>
-		<SubTemplate ID="3" name="Sensor 2 - Long channels">
+	
+			<SubTemplate ID="3" name="Sensor 2 - Normal channels">
 		<DistanceScale Default="yes">35</DistanceScale>
 		<GradientScale>6</GradientScale>
 			<RXOptode ID="3">
 				<RX_ID>3</RX_ID>
+				<SplitCharacter/>
 				<X>-0.99345</X>
-				<Y>0</Y>
+				<Y>-0</Y>
 				<gradX>0</gradX>
 				<gradY>0</gradY>
 			</RXOptode>
 			<TXOptode ID="7">
 				<TX_ID>4</TX_ID>
-				<X>0</X>
-				<Y>0</Y>
+				<SplitCharacter/>
+				<X>-0</X>
+				<Y>-0</Y>
 				<gradX>-0.96179</gradX>
 				<gradY>0</gradY>
 			</TXOptode>
 			<TXOptode ID="8">
 				<TX_ID>5</TX_ID>
+				<SplitCharacter/>
 				<X>0</X>
-				<Y>0</Y>
+				<Y>-0</Y>
 				<gradX>0</gradX>
 				<gradY>-0.66667</gradY>
 			</TXOptode>
 			<TXOptode ID="9">
 				<TX_ID>6</TX_ID>
+				<SplitCharacter/>
 				<X>0</X>
-				<Y>0</Y>
+				<Y>-0</Y>
 				<gradX>1.03821</gradX>
 				<gradY>0</gradY>
 			</TXOptode>
 		</SubTemplate>
-		<SubTemplate ID="4" name="Sensor 2 - Short channels">		
+			<SubTemplate ID="4" name="Sensor 2 - Short channels">		
 		<DistanceScale Default="yes">8</DistanceScale>
 		<GradientScale>6</GradientScale>
 		<RXOptode ID="4">
 				<RX_ID>4</RX_ID>
-				<X>0</X>
-				<Y>0</Y>
-				<gradX>0</gradX>
-				<gradY>0.66667</gradY>
-			</RXOptode>
-			<TXOptode ID="10">
-				<TX_ID>5</TX_ID>
-				<X>0</X>
-				<Y>0</Y>
-				<gradX>0</gradX>
-				<gradY>-0.66667</gradY>
-			</TXOptode>
-		</SubTemplate>		
-		<combination ID="8">
-			<RXOptodeID>3</RXOptodeID>
-			<TXOptodeID>7</TXOptodeID>
-			<TXOptodeID>8</TXOptodeID>
-			<TXOptodeID>9</TXOptodeID>
-		</combination>
-		<combination ID="9">
-			<RXOptodeID>3</RXOptodeID>
-			<TXOptodeID>9</TXOptodeID>
-		</combination>
-		<combination ID="10">
-			<RXOptodeID>3</RXOptodeID>
-			<TXOptodeID>8</TXOptodeID>
-		</combination>
-		<combination ID="11">
-			<RXOptodeID>3</RXOptodeID>
-			<TXOptodeID>7</TXOptodeID>
-		</combination>
-		<combination ID="12">
-			<RXOptodeID>4</RXOptodeID>
-			<TXOptodeID>10</TXOptodeID>
-		</combination>
-		</OptodeTemplate>  
-		
-<OptodeTemplate ID="135" name="PortaLite MKII TSI Fit Factor | 1 Sensor | 3 long + 3 SSC" group="5" DPF="6">
-		<description>PortaLite MkII with 3 channels (first subtemplate) and 3 short seperation channels (second subtemplate) using 2Rx and 3Tx, 1 channel TSI with Fit Factor</description>
-		<SubTemplate ID="1" name="Long channels">		
-		<DistanceScale Default="yes">35</DistanceScale>
-		<GradientScale>6</GradientScale>
-			<RXOptode ID="1">
-				<RX_ID>1</RX_ID>
-				<X>-0.99345</X>
-				<Y>0</Y>
-				<gradX>0</gradX>
-				<gradY>0</gradY>
-			</RXOptode>
-			<TXOptode ID="1">
-				<TX_ID>1</TX_ID>
-				<X>0</X>
-				<Y>0</Y>
-				<gradX>-0.96179</gradX>
-				<gradY>0</gradY>
-			</TXOptode>
-			<TXOptode ID="2">
-				<TX_ID>2</TX_ID>
-				<X>0</X>
-				<Y>0</Y>
-				<gradX>0</gradX>
-				<gradY>-0.66667</gradY>
-			</TXOptode>
-			<TXOptode ID="3">
-				<TX_ID>3</TX_ID>
-				<X>0</X>
-				<Y>0</Y>
-				<gradX>1.03821</gradX>
-				<gradY>0</gradY>
-			</TXOptode>
-		</SubTemplate>
-		<SubTemplate ID="2" name="Short channels">		
-		<DistanceScale Default="yes">8</DistanceScale>
-		<GradientScale>6</GradientScale>
-		<RXOptode ID="2">
-				<RX_ID>2</RX_ID>
-				<X>0</X>
-				<Y>0</Y>
-				<gradX>0</gradX>
-				<gradY>0.666667</gradY>
-			</RXOptode>
-			<TXOptode ID="4">
-				<TX_ID>1</TX_ID>
-				<X>0</X>
-				<Y>0</Y>
-				<gradX>-1</gradX>
-				<gradY>0</gradY>
-			</TXOptode>
-			<TXOptode ID="5">
-				<TX_ID>2</TX_ID>
-				<X>0</X>
-				<Y>0</Y>
-				<gradX>0</gradX>
-				<gradY>-0.66667</gradY>
-			</TXOptode>
-			<TXOptode ID="6">
-				<TX_ID>3</TX_ID>
-				<X>0</X>
-				<Y>0</Y>
-				<gradX>1</gradX>
-				<gradY>0</gradY>
-			</TXOptode>
-		</SubTemplate>
-		
-		<combination ID="1">
-			<RXOptodeID>1</RXOptodeID>
-			<TXOptodeID>1</TXOptodeID>
-			<TXOptodeID>2</TXOptodeID>
-			<TXOptodeID>3</TXOptodeID>
-		</combination>
-		<combination ID="2">
-			<RXOptodeID>1</RXOptodeID>
-			<TXOptodeID>1</TXOptodeID>
-		</combination>
-		<combination ID="3">
-			<RXOptodeID>1</RXOptodeID>
-			<TXOptodeID>2</TXOptodeID>
-		</combination>
-		<combination ID="4">
-			<RXOptodeID>1</RXOptodeID>
-			<TXOptodeID>3</TXOptodeID>
-		</combination>
-		<combination ID="5">
-			<RXOptodeID>2</RXOptodeID>
-			<TXOptodeID>4</TXOptodeID>
-		</combination>
-		<combination ID="6">
-			<RXOptodeID>2</RXOptodeID>
-			<TXOptodeID>5</TXOptodeID>
-		</combination>
-		<combination ID="7">
-			<RXOptodeID>2</RXOptodeID>
-			<TXOptodeID>6</TXOptodeID>
-		</combination>
-	</OptodeTemplate>
-
-<OptodeTemplate ID="136" name="PortaLite MKII TSI Fit Factor | 2 Sensors | 3 long + 3 SSC" group="5" DPF="6">
-		<description>PortaLite MkII with 2 sensors, each with 3 channels and 3 short seperation channels using 2Rx and 3Tx and 1 channel TSI with Fit Factor</description>
-		<SubTemplate ID="1" name="Sensor 1 - Long channels">		
-		<DistanceScale Default="yes">35</DistanceScale>
-		<GradientScale>6</GradientScale>
-			<RXOptode ID="1">
-				<RX_ID>1</RX_ID>
-				<X>-0.99345</X>
-				<Y>0</Y>
-				<gradX>0</gradX>
-				<gradY>0</gradY>
-			</RXOptode>
-			<TXOptode ID="1">
-				<TX_ID>1</TX_ID>
-				<X>0</X>
-				<Y>0</Y>
-				<gradX>-0.96179</gradX>
-				<gradY>0</gradY>
-			</TXOptode>
-			<TXOptode ID="2">
-				<TX_ID>2</TX_ID>
-				<X>0</X>
-				<Y>0</Y>
-				<gradX>0</gradX>
-				<gradY>-0.66667</gradY>
-			</TXOptode>
-			<TXOptode ID="3">
-				<TX_ID>3</TX_ID>
-				<X>0</X>
-				<Y>0</Y>
-				<gradX>1.03821</gradX>
-				<gradY>0</gradY>
-			</TXOptode>
-		</SubTemplate>
-		<SubTemplate ID="2" name="Sensor 1 - Short channels">
-		<DistanceScale Default="yes">8</DistanceScale>
-		<GradientScale>6</GradientScale>
-		<RXOptode ID="2">
-				<RX_ID>2</RX_ID>
-				<X>0</X>
-				<Y>0</Y>
-				<gradX>0</gradX>
-				<gradY>0.66667</gradY>
-			</RXOptode>
-			<TXOptode ID="4">
-				<TX_ID>1</TX_ID>
-				<X>0</X>
-				<Y>0</Y>
-				<gradX>-1</gradX>
-				<gradY>0</gradY>
-			</TXOptode>
-			<TXOptode ID="5">
-				<TX_ID>2</TX_ID>
-				<X>0</X>
-				<Y>0</Y>
-				<gradX>0</gradX>
-				<gradY>-0.66667</gradY>
-			</TXOptode>
-			<TXOptode ID="6">
-				<TX_ID>3</TX_ID>
-				<X>0</X>
-				<Y>0</Y>
-				<gradX>1</gradX>
-				<gradY>0</gradY>
-			</TXOptode>
-		</SubTemplate>
-		<combination ID="1">
-			<RXOptodeID>1</RXOptodeID>
-			<TXOptodeID>1</TXOptodeID>
-			<TXOptodeID>2</TXOptodeID>
-			<TXOptodeID>3</TXOptodeID>
-		</combination>
-		<combination ID="2">
-			<RXOptodeID>1</RXOptodeID>
-			<TXOptodeID>1</TXOptodeID>
-		</combination>
-		<combination ID="3">
-			<RXOptodeID>1</RXOptodeID>
-			<TXOptodeID>2</TXOptodeID>
-		</combination>
-		<combination ID="4">
-			<RXOptodeID>1</RXOptodeID>
-			<TXOptodeID>3</TXOptodeID>
-			</combination>
-		<combination ID="5">
-			<RXOptodeID>2</RXOptodeID>
-			<TXOptodeID>4</TXOptodeID>
-		</combination>
-		<combination ID="6">
-			<RXOptodeID>2</RXOptodeID>
-			<TXOptodeID>5</TXOptodeID>
-		</combination>
-		<combination ID="7">
-			<RXOptodeID>2</RXOptodeID>
-			<TXOptodeID>6</TXOptodeID>
-		</combination>	
-		<SubTemplate ID="3" name="Sensor 2 - Long channels">
-		<DistanceScale Default="yes">35</DistanceScale>
-		<GradientScale>6</GradientScale>
-			<RXOptode ID="3">
-				<RX_ID>3</RX_ID>
-				<X>-0.99345</X>
-				<Y>0</Y>
-				<gradX>0</gradX>
-				<gradY>0</gradY>
-			</RXOptode>
-			<TXOptode ID="7">
-				<TX_ID>4</TX_ID>
-				<X>0</X>
-				<Y>0</Y>
-				<gradX>-0.96179</gradX>
-				<gradY>0</gradY>
-			</TXOptode>
-			<TXOptode ID="8">
-				<TX_ID>5</TX_ID>
-				<X>0</X>
-				<Y>0</Y>
-				<gradX>0</gradX>
-				<gradY>-0.66667</gradY>
-			</TXOptode>
-			<TXOptode ID="9">
-				<TX_ID>6</TX_ID>
-				<X>0</X>
-				<Y>0</Y>
-				<gradX>1.03821</gradX>
-				<gradY>0</gradY>
-			</TXOptode>
-		</SubTemplate>
-		<SubTemplate ID="4" name="Sensor 2 - Short channels">		
-		<DistanceScale Default="yes">8</DistanceScale>
-		<GradientScale>6</GradientScale>
-		<RXOptode ID="4">
-				<RX_ID>4</RX_ID>
+				<SplitCharacter/>
 				<X>0</X>
 				<Y>0</Y>
 				<gradX>0</gradX>
@@ -9416,26 +9214,32 @@
 			</RXOptode>
 			<TXOptode ID="10">
 				<TX_ID>4</TX_ID>
-				<X>0</X>
-				<Y>0</Y>
+				<SplitCharacter/>
+				<X>-0</X>
+				<Y>-0</Y>
 				<gradX>-1</gradX>
 				<gradY>0</gradY>
 			</TXOptode>
 			<TXOptode ID="11">
 				<TX_ID>5</TX_ID>
+				<SplitCharacter/>
 				<X>0</X>
-				<Y>0</Y>
+				<Y>-0</Y>
 				<gradX>0</gradX>
 				<gradY>-0.66667</gradY>
 			</TXOptode>
 			<TXOptode ID="12">
 				<TX_ID>6</TX_ID>
+				<SplitCharacter/>
 				<X>0</X>
-				<Y>0</Y>
+				<Y>-0</Y>
 				<gradX>1</gradX>
 				<gradY>0</gradY>
 			</TXOptode>
-		</SubTemplate>	
+		</SubTemplate>
+		
+		
+		
 		<combination ID="8">
 			<RXOptodeID>3</RXOptodeID>
 			<TXOptodeID>7</TXOptodeID>
@@ -9454,7 +9258,7 @@
 			<RXOptodeID>3</RXOptodeID>
 			<TXOptodeID>7</TXOptodeID>
 		</combination>
-		<combination ID="12">
+			<combination ID="12">
 			<RXOptodeID>4</RXOptodeID>
 			<TXOptodeID>10</TXOptodeID>
 		</combination>
@@ -9465,8 +9269,10 @@
 		<combination ID="14">
 			<RXOptodeID>4</RXOptodeID>
 			<TXOptodeID>12</TXOptodeID>
-		</combination>	
+		</combination>
+	
 		</OptodeTemplate>
+	
 	
   <!--Group 6 - Oxymon incl reference-->
   
